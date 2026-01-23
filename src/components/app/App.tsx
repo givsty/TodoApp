@@ -1,10 +1,14 @@
 import { Header } from '../header/header'
+import { Section } from '../section/section'
 import style from './App.module.css'
-function App() {
 
+function App() {
   return (
     <main className={style.app}>
-      <Header />
+      <div className="wrapper">
+        <Header />
+        <Section />
+      </div>
     </main>
   )
 }
