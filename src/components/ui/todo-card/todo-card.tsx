@@ -7,8 +7,8 @@ export const TodoCardUi = () => {
     <article className={style.article}>
         <div className={style.wrapper}>
             <CheckboxTodoUi />
-            <span>todo-card</span>
-            {false ? <DoneIcon /> : <DeleteIcon />}
+            <span className={false ? style.done : ''}>todo-card</span>
+            <div className={style.delete}>{false ? <DoneIcon /> : <DeleteIcon />}</div>
         </div>
         <div className={style.line}></div>
     </article>
