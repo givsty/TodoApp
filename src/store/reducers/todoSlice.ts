@@ -1,29 +1,56 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { Todo } from '../../types/intex';
-
-
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { Todo } from '../../types';
+import { getTodo } from '../../api/todo';
+import { v4 as uuidv4, v4 } from 'uuid';
 type todoSlice = {
-  todo: Todo[] | null
+    todo: Todo[]
 };
 
 const initialState: todoSlice = {
-  todo: null
+    todo: []
 };
 
+export const fetchTodo = createAsyncThunk(
+    'todo/fetchTodo',
+    getTodo
+)
 
 const todoSlice = createSlice({
-  name: 'feedSlice',
-  initialState,
-  reducers: {
-    addTodo(state, action) {
-      state.todo?.push(action.payload)
+    name: 'todoSlice',
+    initialState,
+    reducers: {
+        addTodo(state, action) {
+            state.todo?.push({
+                title: action.payload,
+                userId: Math.random(),
+                id: Math.random(),
+                completed: false
+            })
+        },
+        removeTodo(state, action) {
+            console.log(v4())
+            console.log(action.payload)
+            state.todo = state.todo.filter(element => element.id !== action.payload)
+        },
+        doneTodo(state, action) {
+            if(action.payload) {
+                state.todo.find(todo => todo.id === action.payload ? todo.completed = true: '')
+            }
+        }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(fetchTodo.pending, (action)=>{
+
+        })
+        builder.addCase(fetchTodo.fulfilled, (state, action)=>{
+            state.todo = action.payload
+        })
+        builder.addCase(fetchTodo.rejected, (state, action)=>{
+            console.log(action.error)
+        })
     }
-  },
-  extraReducers: (builder) => {
-    
-  }
 });
 
-export const {addTodo} = todoSlice.actions;
+export const {addTodo, removeTodo} = todoSlice.actions;
 
-export default todoSlice
+export default todoSlice.reducer

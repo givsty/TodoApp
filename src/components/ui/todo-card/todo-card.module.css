@@ -1,5 +1,4 @@
 article {
-
 }
 
 .line {
@@ -16,4 +15,8 @@ article {
 
 .done {
     text-decoration: line-through
+}
+
+.iconsWrapper {
+    display: flex;
 }

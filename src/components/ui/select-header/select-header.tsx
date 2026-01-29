@@ -12,7 +12,7 @@ export default function SelectUi() {
   };
 
   return (
-    <FormControl sx={{ minWidth: 120 }} size="small">
+    <FormControl sx={{ minWidth: 120 }} size="small" variant='outlined'>
       <InputLabel id="demo-select-small-label">Age</InputLabel>
       <Select
         labelId="demo-select-small-label"
@@ -20,6 +20,7 @@ export default function SelectUi() {
         value={age}
         label="Age"
         onChange={handleChange}
+        variant='outlined'
       >
         <MenuItem value="">
           <em>None</em>

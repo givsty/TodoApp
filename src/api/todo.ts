@@ -1,17 +1,9 @@
-export class TodoApi {
-    url: string = 'https://jsonplaceholder.typicode.com/todos/1'
+const config = {
+    url: 'https://jsonplaceholder.typicode.com/todos'
+}
 
-    // constructor(url: string){
-    // }
-
-    public async getTodo() {
-        const response = await fetch(this.url)
-        const result = await response.json()
-        return result
-    }
-    // Todo
-    // public async sendTodo() {
-    //  
-    // }
-
+export const getTodo = async () => {
+    const response = await fetch(config.url)
+    const result = await response.json()
+    return result
 }

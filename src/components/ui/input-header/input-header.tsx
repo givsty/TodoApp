@@ -1,17 +1,28 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import type { ChangeEvent } from 'react';
+import ButtonHeaderUi from '../header-button/header-button';
+import SelectUi from '../select-header/select-header';
+
 interface InputHeaderUiProps {
-  handleChange: (e: React.ChangeEvent) => void
+    handleChange: (e: ChangeEvent<HTMLInputElement>) => void
+    submitTodo: (e: ChangeEvent<HTMLFormElement>) => void
+    value: string
 }
-export default function InputHeaderUi( {handleChange}: InputHeaderUiProps) {
+
+export default function InputHeaderUi( {handleChange, submitTodo, value }: InputHeaderUiProps) {
     return (
         <Box
+            onSubmit={submitTodo}
             component="form"
-            sx={{ '& > :not(style)': { m: 1, width: '50ch' } }}
             noValidate
             autoComplete="off"
+            display='flex'
+            gap='16px'
         >
-            <TextField id="outlined-basic" variant="outlined" placeholder="Search note..." onChange={(e) => handleChange(e)}/>
+            <TextField style={{width: '595px'}}id="outlined-basic" variant="outlined" placeholder="Search note..." onChange={handleChange} value={value}/>
+            {/* <SelectUi /> */}
+            <ButtonHeaderUi/>
         </Box>
     );
 }
