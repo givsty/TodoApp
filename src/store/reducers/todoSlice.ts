@@ -28,8 +28,6 @@ const todoSlice = createSlice({
             })
         },
         removeTodo(state, action) {
-            console.log(v4())
-            console.log(action.payload)
             state.todo = state.todo.filter(element => element.id !== action.payload)
         },
         doneTodo(state, action) {

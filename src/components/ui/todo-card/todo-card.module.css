@@ -2,7 +2,7 @@ article {
 }
 
 .line {
-    border-bottom: solid rgb(222, 4, 222); /* Толщина, стиль, цвет */
+    border-bottom: solid purple; /* Толщина, стиль, цвет */
     width: 100%; /* Ширина линии */
     margin-left: 7px;
     cursor: pointer;
@@ -11,6 +11,7 @@ article {
 .wrapper {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .done {
@@ -18,5 +19,10 @@ article {
 }
 
 .iconsWrapper {
+    display: flex;
+}
+
+.titleWrapper {
+    align-items: center;
     display: flex;
 }

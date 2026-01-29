@@ -15,8 +15,10 @@ export const TodoCardUi = ( {todo, deleteTodo}: TodoCardUiProps ) => {
     return (
         <article className={style.article}>
             <div className={style.wrapper}>
-                <CheckboxTodoUi />
-                <span className={completed ? style.done : ''}>{title}</span>
+                <div className={style.titleWrapper}>
+                    <CheckboxTodoUi />
+                    <span className={completed ? style.done : ''}>{title}</span>
+                </div>
                 <div className={style.iconsWrapper}>
                     {completed && <DoneIcon />}
                     <div className={style.delete} onClick={deleteTodo}><DeleteIcon /></div>
