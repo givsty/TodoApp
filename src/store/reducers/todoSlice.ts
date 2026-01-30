@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { Todo } from '../../types';
 import { getTodo } from '../../api/todo';
-import { v4 as uuidv4, v4 } from 'uuid';
+
 type todoSlice = {
     todo: Todo[]
 };
@@ -37,13 +37,10 @@ const todoSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(fetchTodo.pending, (action)=>{
-
-        })
         builder.addCase(fetchTodo.fulfilled, (state, action)=>{
             state.todo = action.payload
         })
-        builder.addCase(fetchTodo.rejected, (state, action)=>{
+        builder.addCase(fetchTodo.rejected, (_state, action)=>{
             console.log(action.error)
         })
     }

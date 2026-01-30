@@ -12,7 +12,7 @@ function App() {
     },[dispatch])
     return (
         <main className={style.app}>
-            <div className="wrapper">
+            <div className={style.wrapper}>
                 <Header />
                 <Section />
             </div>

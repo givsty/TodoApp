@@ -1,5 +1,4 @@
 import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { type SelectChangeEvent } from '@mui/material/Select';
@@ -12,15 +11,14 @@ export default function SelectUi() {
   };
 
   return (
-    <FormControl sx={{ minWidth: 120 }} size="small" variant='outlined'>
-      <InputLabel id="demo-select-small-label">Age</InputLabel>
+    <FormControl sx={{ minWidth: 120,}} size="small" variant='outlined'>
       <Select
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={age}
-        label="Age"
         onChange={handleChange}
         variant='outlined'
+        sx={{background: 'pink'}}
       >
         <MenuItem value="">
           <em>None</em>

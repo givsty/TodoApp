@@ -6,6 +6,6 @@ const BootstrapButton = styled(Button)({
     backgroundColor: '#6C63FF',
 });
 
-export default function ButtonHeaderUi() {
+export default function AddButtonUi() {
     return <BootstrapButton variant="contained" size='large' type='submit'>Add</BootstrapButton>
 }
