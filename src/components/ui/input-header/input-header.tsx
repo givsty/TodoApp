@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import type { ChangeEvent } from 'react';
 import ButtonHeaderUi from '../header-button/header-button';
-import SelectUi from '../select-header/select-header';
 
 interface InputHeaderUiProps {
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void

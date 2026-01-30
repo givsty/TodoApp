@@ -9,7 +9,7 @@ function App() {
     const dispatch = useAppDispatch()
     useEffect(()=>{
         dispatch(fetchTodo())
-    })
+    },[dispatch])
     return (
         <main className={style.app}>
             <div className="wrapper">
